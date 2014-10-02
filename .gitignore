@@ -2,9 +2,6 @@
 *
 
 # except these files
-!chef/Cheffile
-!chef/Cheffile.lock
-!chef/config.rb
 !.editorconfig
 !.gitattributes
 !.gitignore
@@ -12,3 +9,6 @@
 !_config.yml
 !README
 !Vagrantfile
+
+# except chef directory (which has it's own .gitignore)
+!chef/

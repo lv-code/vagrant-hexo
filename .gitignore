@@ -9,6 +9,6 @@
 !.gitattributes
 !.gitignore
 !.travis.yml
-!_config.yml.default
+!_config.yml
 !README
 !Vagrantfile

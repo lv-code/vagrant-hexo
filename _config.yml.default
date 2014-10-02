@@ -1,0 +1,12 @@
+#
+# Default settings.
+#
+# Do not change, override by creating a local _config.yml.
+#
+---
+hexo:
+  install_demo: true			# true to install and configure Hexo in /vagrant/hexo
+
+vm:
+  hostname: hexo				# name of the virtual machine
+  ip_address: 10.25.83.63		# ip-address of the virtual machine

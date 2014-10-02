@@ -2,8 +2,9 @@
 *
 
 # except these files
-!cookbooks/
-!.chefconfig
+!chef/Cheffile
+!chef/Cheffile.lock
+!chef/config.rb
 !.editorconfig
 !.gitattributes
 !.gitignore

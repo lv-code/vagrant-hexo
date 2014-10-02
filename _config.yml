@@ -3,7 +3,7 @@
 #
 ---
 hexo:
-  # true to install a working Hexo blog with Light theme in /vagrant/demo.
+  # true will install a working Hexo blog with Light theme in /vagrant/demo.
   install_demo: true
 
 vm:

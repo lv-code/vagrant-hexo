@@ -1,0 +1,5 @@
+# ignore
+.vagrant
+_config.yml
+octopress/
+!cookbooks/octopress

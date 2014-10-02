@@ -1,5 +1,12 @@
-# ignore
-.vagrant
-_config.yml
-octopress/
-!cookbooks/octopress
+# ignore everything
+*
+
+# except these files
+!cookbooks/
+!.editorconfig
+!.gitattributes
+!.gitignore
+!.travis.yml
+!_config.yml.default
+!README
+!Vagrantfile

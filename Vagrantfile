@@ -30,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Default box configuration
   config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
   config.vm.box_url = "https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/virtualbox.box"
+
   config.vm.hostname = settings['vm']['hostname']
   config.vm.network :private_network, ip: settings['vm']['ip_address']
 
@@ -42,6 +43,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       'git',
       'nodejs'
     ]
+  end
+
+  # Make the vm work using VMWare Workstation too
+  config.vm.provider :vmware_desktop do |v, override|
+    override.vm.box = "puppetlabs/vmware_desktop"
+    override.vm.box_url = "https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_desktop.box"
+  end
+
+  # Make vm work using VMWare Fusion too
+  config.vm.provider :vmware_fusion do |v, override|
+    override.vm.box = "puppetlabs/vmware_fusion"
+    override.vm.box_url = "https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_fusion.box"
   end
 
 end

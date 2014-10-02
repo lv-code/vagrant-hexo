@@ -3,8 +3,9 @@
 #
 ---
 hexo:
-  install_demo: true			# true installs a working Hexo blog with Light theme in /vagrant/demo
+  # true to install a working Hexo blog with Light theme in /vagrant/demo.
+  install_demo: true
 
 vm:
-  hostname: hexo				# name of the virtual machine
-  ip_address: 10.25.83.63		# ip-address of the virtual machine
+  hostname: hexo
+  ip_address: 10.25.83.63

@@ -7,8 +7,9 @@
 !.gitignore
 !.travis.yml
 !_config.yml
+!LICENSE.TXT
 !README
 !Vagrantfile
 
-# except chef directory (which has it's own .gitignore)
+# except chef directory (which uses it's own .gitignore)
 !chef/

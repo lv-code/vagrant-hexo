@@ -38,8 +38,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = 'chef/config.rb'
     chef.cookbooks_path = "chef/cookbooks"
+
+    # Customize Chef runbooks downloaded by Chef
+    chef.json = {
+    }
+
+    # Execute Chef recipes in this order
     chef.run_list = [
       'apt',
+      'shellshocker',
       'git',
       'nodejs'
     ]
@@ -56,5 +63,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.vm.box = "puppetlabs/vmware_fusion"
     override.vm.box_url = "https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_fusion.box"
   end
+
+  # @todo:
+  # - git version 2.1 (http://tecadmin.net/install-git-on-ubuntu/)
+  # - variable end-message (demo boolean?)
 
 end

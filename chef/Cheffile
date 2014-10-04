@@ -6,5 +6,9 @@ site 'http://community.opscode.com/api/v1'
 cookbook 'apt'
 cookbook 'git'
 
+cookbook 'shellshocker',
+  :git => 'https://github.com/alt3/cookbooks',
+  :path => 'shellshocker'
+
 cookbook 'nodejs',
   :git => 'https://github.com/redguide/nodejs'

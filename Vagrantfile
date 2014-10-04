@@ -66,6 +66,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # @todo:
   # - git version 2.1 (http://tecadmin.net/install-git-on-ubuntu/)
-  # - variable end-message (demo boolean?)
 
 end

@@ -12,4 +12,4 @@
 !Vagrantfile
 
 # except chef directory (which uses it's own .gitignore)
-!chef/
+!.chef/

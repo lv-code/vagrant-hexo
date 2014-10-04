@@ -4,5 +4,4 @@
 # except these files
 !.gitignore
 !Cheffile
-!Cheffile.lock
 !config.rb

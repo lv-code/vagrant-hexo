@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   unless Vagrant.has_plugin?("vagrant-librarian-chef")
     raise Vagrant::Errors::VagrantError.new, "Error: missing plugin. Please run 'vagrant plugin install vagrant-librarian-chef'"
   end
-  config.librarian_chef.cheffile_dir = "chef"
+  config.librarian_chef.cheffile_dir = ".chef"
 
   # Enable SSH agent forwarding and fix "stdin: is not a tty" message
   config.ssh.forward_agent = true
@@ -36,8 +36,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Provision vm using Chef-Librarian
   config.vm.provision :chef_solo do |chef|
-    chef.custom_config_path = 'chef/config.rb'
-    chef.cookbooks_path = "chef/cookbooks"
+    chef.custom_config_path = '.chef/config.rb'
+    chef.cookbooks_path = ".chef/cookbooks"
 
     # Customize Chef runbooks downloaded by Chef
     chef.json = {
@@ -46,8 +46,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Execute Chef recipes in this order
     chef.run_list = [
       'apt',
-      'shellshocker',
       'git',
+      'shellshocker',
       'nodejs'
     ]
   end

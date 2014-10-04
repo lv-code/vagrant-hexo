@@ -19,9 +19,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   config.librarian_chef.cheffile_dir = ".chef"
 
-  # Enable SSH agent forwarding and fix "stdin: is not a tty" message
+  # Enable SSH agent forwarding
   config.ssh.forward_agent = true
-  config.ssh.shell = "bash"
 
   # Load settings
   raise Vagrant::Errors::VagrantError.new, "Error: configuration file _config.yml not found" unless File.exist?("_config.yml")
@@ -33,6 +32,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = settings['vm']['hostname']
   config.vm.network :private_network, ip: settings['vm']['ip_address']
+
+  # Do not mount /vagrant, mount local blogs directory to /blog instead
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "blogs", "/blogs", create: true, owner: 'vagrant', group: 'vagrant'
 
   # Provision vm using Chef-Librarian
   config.vm.provision :chef_solo do |chef|
@@ -47,8 +50,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.run_list = [
       'apt',
       'git',
-      'shellshocker',
-      'nodejs'
+      'nodejs',
+      'hexo'
     ]
   end
 

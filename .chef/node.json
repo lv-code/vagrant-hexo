@@ -1,0 +1,9 @@
+{
+  "override_attributes": {},
+  "run_list": [
+    "recipe[apt]",
+    "recipe[git]",
+    "recipe[nodejs]",
+    "recipe[hexo]"
+  ]
+}

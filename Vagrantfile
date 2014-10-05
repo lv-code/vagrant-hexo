@@ -41,18 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = '.chef/config.rb'
     chef.cookbooks_path = ".chef/cookbooks"
-
-    # Customize Chef runbooks downloaded by Chef
-    chef.json = {
-    }
-
-    # Execute Chef recipes in this order
-    chef.run_list = [
-      'apt',
-      'git',
-      'nodejs',
-      'hexo'
-    ]
+    chef.json.merge!(JSON.parse(File.read(".chef/node.json")))
   end
 
   # Make the vm work using VMWare Workstation too

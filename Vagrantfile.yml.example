@@ -1,12 +1,13 @@
 #
 # Create Vagrantfile.yml to override default settings
 #
+# List of themes at https://github.com/hexojs/hexo/wiki/Themes
+#
 ---
 hexo:
-- blogs_root: /blogs
-- demo: true
-- theme: https://github.com/hexojs/hexo-theme-light.git
+- install_demo  : true
+- theme_git_url : https://github.com/kywk/hexo-theme-casper.git
 
 vm:
-- hostname: hexo
-- ip_address: 10.25.83.66
+- hostname      : hexo
+- ip_address    : 10.25.83.66

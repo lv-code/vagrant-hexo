@@ -3,6 +3,7 @@
 #
 ---
 hexo:
+- blogs_root: /blogs
 - demo: true
 - theme: https://github.com/hexojs/hexo-theme-light.git
 

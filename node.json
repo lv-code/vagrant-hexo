@@ -4,6 +4,7 @@
  	"hostname":	"hexo"
  },
  "hexo": {
+  "blogs_root": "/blogs",
   "demo": true,
   "theme": "https://github.bla"
   },

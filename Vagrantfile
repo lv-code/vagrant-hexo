@@ -36,7 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Do not mount /vagrant, mount local blogs directory to /blog instead
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "blogs", "/blogs", create: true, owner: 'vagrant', group: 'vagrant'
+  config.vm.synced_folder "blogs", settings[:hexo][:blogs_root], create: true, owner: 'vagrant', group: 'vagrant'
 
   # Provision vm using Chef-Librarian
   config.vm.provision :chef_solo do |chef|

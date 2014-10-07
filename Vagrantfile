@@ -22,11 +22,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable SSH agent forwarding
   config.ssh.forward_agent = true
 
-  # Load default vm/Chef settings from node.json. Override with user-settings in Vagrantfile.yml (if present)
+  # Load default vm/Chef settings from node.json
   raise Vagrant::Errors::VagrantError.new, 'Error: configuration file node.json not found' unless File.exist?('node.json')
   settings = JSON.parse(File.read('node.json'))
-  settings = settings.merge(YAML::load_file('Vagrantfile.yml')) if File.exist?('Vagrantfile.yml')
+
+  # Extend settings
   settings['hexo'] = { 'ip_address' => settings['vm']['ip_address'] }
+  settings.deep_merge!(YAML::load_file('Vagrantfile.yml')) if File.exist?('Vagrantfile.yml')
 
   # Default box configuration
   config.vm.box = 'puppetlabs/ubuntu-14.04-64-nocm'

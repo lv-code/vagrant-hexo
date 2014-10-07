@@ -5,9 +5,9 @@
 #
 ---
 hexo:
-- install_demo  : true
-- theme_git_url : https://github.com/kywk/hexo-theme-casper.git
+  install_demo  : true
+  theme_git_url : https://github.com/kywk/hexo-theme-casper.git
 
 vm:
-- hostname      : hexo
-- ip_address    : 10.25.83.66
+  hostname      : hexo
+  ip_address    : 10.25.83.66

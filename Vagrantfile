@@ -3,58 +3,59 @@
 
 
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
-VAGRANTFILE_API_VERSION = "2"
+VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Add Chef to the bare box using Vagrant plugin
-  unless Vagrant.has_plugin?("vagrant-omnibus")
+  unless Vagrant.has_plugin?('vagrant-omnibus')
     raise Vagrant::Errors::VagrantError.new, "Error: missing plugin. Please run 'vagrant plugin install vagrant-omnibus'"
   end
   config.omnibus.chef_version = :latest
 
   # Add Librarian-Chef to the bare box using Vagrant plugin
-  unless Vagrant.has_plugin?("vagrant-librarian-chef")
+  unless Vagrant.has_plugin?('vagrant-librarian-chef')
     raise Vagrant::Errors::VagrantError.new, "Error: missing plugin. Please run 'vagrant plugin install vagrant-librarian-chef'"
   end
-  config.librarian_chef.cheffile_dir = ".chef"
+  config.librarian_chef.cheffile_dir = '.chef'
 
   # Enable SSH agent forwarding
   config.ssh.forward_agent = true
 
   # Load default vm/Chef settings from node.json. Override with user-settings in Vagrantfile.yml (if present)
-  raise Vagrant::Errors::VagrantError.new, "Error: configuration file node.json not found" unless File.exist?("node.json")
-  settings = JSON.parse(File.read("node.json"))
-  settings = settings.merge(YAML::load_file("Vagrantfile.yml")) if File.exist?("Vagrantfile.yml")
+  raise Vagrant::Errors::VagrantError.new, 'Error: configuration file node.json not found' unless File.exist?('node.json')
+  settings = JSON.parse(File.read('node.json'))
+  settings = settings.merge(YAML::load_file('Vagrantfile.yml')) if File.exist?('Vagrantfile.yml')
+  settings['hexo'] = { 'ip_address' => settings['vm']['ip_address'] }
 
   # Default box configuration
-  config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
-  config.vm.box_url = "https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/virtualbox.box"
+  config.vm.box = 'puppetlabs/ubuntu-14.04-64-nocm'
+  config.vm.box_url = 'https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/virtualbox.box'
 
   config.vm.hostname = settings['vm']['hostname']
   config.vm.network :private_network, ip: settings['vm']['ip_address']
 
-  # Do not mount /vagrant, mount local blogs directory to /blog instead
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "blogs", settings[:hexo][:blogs_root], create: true, owner: 'vagrant', group: 'vagrant'
+  # Do not mount /vagrant. Mount local blogs directory to /blogs instead
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vm.synced_folder 'blogs', '/blogs', create: true, owner: 'vagrant', group: 'vagrant'
 
   # Provision vm using Chef-Librarian
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = '.chef/config.rb'
-    chef.cookbooks_path = ".chef/cookbooks"
+    chef.cookbooks_path = '.chef/cookbooks'
     chef.json = settings
   end
 
   # Make the vm work using VMWare Workstation too
   config.vm.provider :vmware_desktop do |v, override|
-    override.vm.box = "puppetlabs/vmware_desktop"
-    override.vm.box_url = "https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_desktop.box"
+    override.vm.box = 'puppetlabs/vmware_desktop'
+    override.vm.box_url = 'https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_desktop.box'
   end
 
   # Make vm work using VMWare Fusion too
   config.vm.provider :vmware_fusion do |v, override|
-    override.vm.box = "puppetlabs/vmware_fusion"
-    override.vm.box_url = "https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_fusion.box"
+    override.vm.box = 'puppetlabs/vmware_fusion'
+    override.vm.box_url = 'https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_fusion.box'
   end
 
   # @todo:

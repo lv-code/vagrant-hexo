@@ -22,9 +22,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable SSH agent forwarding
   config.ssh.forward_agent = true
 
-  # Load settings
-  raise Vagrant::Errors::VagrantError.new, "Error: configuration file _config.yml not found" unless File.exist?("_config.yml")
-  settings = YAML::load_file("_config.yml")
+  # Load default vm/Chef settings from node.json. Override with user-settings in Vagrantfile.yml (if present)
+  raise Vagrant::Errors::VagrantError.new, "Error: configuration file node.json not found" unless File.exist?("node.json")
+  settings = JSON.parse(File.read("node.json"))
+  settings = settings.merge(YAML::load_file("Vagrantfile.yml")) if File.exist?("Vagrantfile.yml")
 
   # Default box configuration
   config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
@@ -41,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = '.chef/config.rb'
     chef.cookbooks_path = ".chef/cookbooks"
-    chef.json.merge!(JSON.parse(File.read(".chef/node.json")))
+    chef.json = settings
   end
 
   # Make the vm work using VMWare Workstation too

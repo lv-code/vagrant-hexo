@@ -1,0 +1,11 @@
+#
+# Create Vagrantfile.yml to override default settings
+#
+---
+hexo:
+- demo: true
+- theme: https://github.com/hexojs/hexo-theme-light.git
+
+vm:
+- hostname: hexo
+- ip_address: 10.25.83.66

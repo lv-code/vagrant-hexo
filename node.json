@@ -1,17 +1,12 @@
 {
- "vm": {
- 	"ip_address": "10.25.83.66",
- 	"hostname":	"hexo"
- },
- "hexo": {
-  "blogs_root": "/blogs",
-  "demo": true,
-  "theme": "https://github.bla"
-  },
-  "run_list": [
-    "recipe[apt]",
-    "recipe[git]",
-    "recipe[nodejs]",
-    "recipe[hexo]"
-  ]
+	"vm": {
+		"ip_address": "10.25.83.66",
+		"hostname":	"hexo"
+	},
+	"run_list": [
+		"recipe[apt]",
+		"recipe[git]",
+		"recipe[nodejs]",
+		"recipe[hexo]"
+	]
 }

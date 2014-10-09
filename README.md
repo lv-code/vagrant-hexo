@@ -79,6 +79,7 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 	git clone git://github.com/<your-hexo-blog>.git
 	cd <your-hexo-blog>
 	git checkout source
+	npm install --no-bin-links
 
 # Notes
 

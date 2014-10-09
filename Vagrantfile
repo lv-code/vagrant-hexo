@@ -60,7 +60,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.vm.box_url = 'https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/vmware_fusion.box'
   end
 
-  # @todo:
-  # - git version 2.1 (http://tecadmin.net/install-git-on-ubuntu/)
-
 end

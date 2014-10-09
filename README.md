@@ -5,9 +5,4 @@ Ready to run Hexo blog server
 
 
 #TODO
-
-- change ip-address
-- install demo
-- clock deploy-time
-- end-message
-- add depends (still needed ???)
+- git version 2.1 (http://tecadmin.net/install-git-on-ubuntu/)

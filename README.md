@@ -1,7 +1,7 @@
 vagrant-hexo
 ============
 
-Chef provisioned [hexo](http://hexo.io) server with the following features:
+Chef-librarian provisioned [hexo](http://hexo.io) server with the following features:
 
 - 64-bit Ubuntu 14.04 LTS
 - running at `10.25.83.66`
@@ -21,7 +21,7 @@ Chef provisioned [hexo](http://hexo.io) server with the following features:
 	vagrant up
 
 ## Configuration
-Customize your server by creating `Vagrantfile.yml` and changing any of the following settings:
+The default server settings should suffice in most cases. However, feel free to override them by creating `Vagrantfile.yml` and changing any of the following settings:
 
 <table>
   <tr>
@@ -81,15 +81,23 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 	git checkout source
 	npm install --no-bin-links
 
-# Notes
-
-- `--no-bin-links` required for npm installs (to prevent symlink errors)
-
 # Additional information
 
+##Notes
+
+- use of `--no-bin-links` for npm installs is required to prevent (Vagrant caused) symlink errors
+
+##Links
 - [Hexo documentation](http://hexo.io/docs/)
 - [Hexo themes](https://github.com/hexojs/hexo/wiki/Themes)
 
+##Contributing
+
+1. Fork it ( https://github.com/alt3/vagrant-hexo/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Adds some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 #@TODO
 - add post with redirect example to demo

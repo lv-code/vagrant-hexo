@@ -12,6 +12,7 @@
 		"recipe[apt]",
 		"recipe[git]",
 		"recipe[nodejs]",
-		"recipe[hexo]"
+		"recipe[hexo]",
+		"recipe[utilities::login_chdir]"
 	]
 }

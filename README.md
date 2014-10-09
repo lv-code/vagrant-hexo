@@ -1,15 +1,7 @@
 vagrant-hexo
 ============
 
-Instant [hexo.io](http://hexo.io) blog server for hosting one or multiple blogs.
-
-- 64-bit Ubuntu 14.04 LTS
-- running at `10.25.83.66`
-- with latest [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/), git and hexo
-- local blogs directory mounted as `/blogs`
-- fully functional demo with light-theme and redirect example
-
-
+Instant [hexo](http://hexo.io) server.
 
 # Installation
 
@@ -17,9 +9,17 @@ Instant [hexo.io](http://hexo.io) blog server for hosting one or multiple blogs.
 	cd vagrant-hexo
 	vagrant up
 
+This will give you:
+
+- a 64-bit Ubuntu 14.04 LTS server
+- running at `10.25.83.66`
+- with latest [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/), git and hexo
+- local blogs directory mounted as `/blogs`
+- fully functional demo with light-theme and redirect example
+
 
 ## Configuration
-Customize your server by creating a `Vagrantfile.yml` file and changing the following settings:
+Create `Vagrantfile.yml` to override the following default settings:
 
 <table>
   <tr>
@@ -56,7 +56,7 @@ Customize your server by creating a `Vagrantfile.yml` file and changing the foll
 
 # Usage
 
-## Launch hexo demo
+## Launch demo blog
 
 	vagrant ssh
 	cd demo
@@ -64,14 +64,14 @@ Customize your server by creating a `Vagrantfile.yml` file and changing the foll
 
 Point your browser at [http://10.25.83.66](http://10.25.83.66)
 
-## New hexo blog
+## Create new blog
 
 	vagrant ssh
 	hexo init myblog
 	cd myblog
 	npm install --no-bin-links
 
-## Restore hexo blog
+## Restore existing blog
 
 	vagrant ssh
 	git clone git://github.com/<your-hexo-blog>.git

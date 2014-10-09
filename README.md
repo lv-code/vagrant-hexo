@@ -5,8 +5,9 @@ Chef-librarian provisioned [hexo](http://hexo.io) server with the following feat
 
 - 64-bit Ubuntu 14.04 LTS
 - running at `10.25.83.66`
-- latest [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/), git and hexo
-- local blogs directory mounted as `/blogs`
+- local blogs directory mounted as `/blogs` 
+- latest [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/) and hexo
+- ready to deploy using git, rsync or [heroku](https://www.heroku.com) 
 - fully functional demo with light-theme and redirect example
 
 # Requirements
@@ -100,6 +101,7 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 5. Create a new Pull Request
 
 #@TODO
+- add heroku
 - add post with redirect example to demo
 - add alias to easify --no-bin-links?
 - change git version to 2.1 (http://tecadmin.net/install-git-on-ubuntu/)

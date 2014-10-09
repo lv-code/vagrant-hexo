@@ -12,6 +12,7 @@
 		"recipe[apt]",
 		"recipe[git]",
 		"recipe[nodejs]",
+		"recipe[heroku-toolbelt]",
 		"recipe[hexo]",
 		"recipe[utilities::login_chdir]"
 	]

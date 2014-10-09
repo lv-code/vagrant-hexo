@@ -1,7 +1,18 @@
 vagrant-hexo
 ============
 
-Instant [hexo](http://hexo.io) server.
+Chef provisioned [hexo](http://hexo.io) server with the following features:
+
+- 64-bit Ubuntu 14.04 LTS
+- running at `10.25.83.66`
+- latest [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/), git and hexo
+- local blogs directory mounted as `/blogs`
+- fully functional demo with light-theme and redirect example
+
+# Requirements
+
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+- [Vagrant](http://www.vagrantup.com/downloads.html)
 
 # Installation
 
@@ -9,17 +20,8 @@ Instant [hexo](http://hexo.io) server.
 	cd vagrant-hexo
 	vagrant up
 
-This will give you:
-
-- a 64-bit Ubuntu 14.04 LTS server
-- running at `10.25.83.66`
-- with latest [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/), git and hexo
-- local blogs directory mounted as `/blogs`
-- fully functional demo with light-theme and redirect example
-
-
 ## Configuration
-Create `Vagrantfile.yml` to override the following default settings:
+Customize your server by creating `Vagrantfile.yml` and changing any of the following settings:
 
 <table>
   <tr>
@@ -38,7 +40,7 @@ Create `Vagrantfile.yml` to override the following default settings:
 	<td><code>hexo</code></td>
     <td><code>theme_git_url</code></td>
     <td>URL to a git repository holding a hexo theme.</td>
-    <td><em></em></td>
+    <td><em>(see .yml)</em></td>
   </tr>
   <tr>
 	<td><code>vm</code></td>
@@ -80,7 +82,7 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 
 # Notes
 
-- @todo: `npm install --no-bin-links`
+- `--no-bin-links` required for npm installs (to prevent symlink errors)
 
 # Additional information
 
@@ -90,4 +92,5 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 
 #@TODO
 - add post with redirect example to demo
+- add alias to easify --no-bin-links?
 - change git version to 2.1 (http://tecadmin.net/install-git-on-ubuntu/)

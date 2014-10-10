@@ -17,6 +17,4 @@ cookbook 'heroku',
   :git => 'https://github.com/alt3-cookbooks/heroku'
 
 cookbook 'utilities',
-  :git => 'https://github.com/alt3/cookbooks',
-  :path => 'utilities'
-
+  :git => 'https://github.com/alt3-cookbooks/utilities'

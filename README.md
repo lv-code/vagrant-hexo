@@ -101,7 +101,7 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 5. Create a new Pull Request
 
 #@TODO
-- replace un-cheffish heroku recipe
+- add ruby (heroku now standalone)
 - add post with redirect example to demo
 - add alias to easify --no-bin-links?
 - change git version to 2.1 (http://tecadmin.net/install-git-on-ubuntu/)

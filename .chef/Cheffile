@@ -10,20 +10,13 @@ cookbook 'rvm'
 cookbook 'nodejs',
   :git => 'https://github.com/redguide/nodejs'
 
-
-#cookbook 'hexo',
-#  :git => 'https://github.com/alt3-cookbooks/hexo'
-
-#cookbook 'utilities',
-#  :git => 'https://github.com/alt3-cookbooks/utilities'
-
 cookbook 'hexo',
-  :git => 'https://github.com/alt3/cookbooks',
-  :path => 'hexo'
+  :git => 'https://github.com/alt3-cookbooks/hexo'
+
+cookbook 'heroku',
+  :git => 'https://github.com/alt3-cookbooks/heroku'
 
 cookbook 'utilities',
   :git => 'https://github.com/alt3/cookbooks',
   :path => 'utilities'
 
-cookbook 'heroku',
-  :git => 'https://github.com/alt3-cookbooks/heroku'

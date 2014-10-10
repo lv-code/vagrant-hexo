@@ -1,19 +1,27 @@
 {
+	"vm": {
+		"ip_address": "10.25.83.66",
+		"hostname":	"hexo"
+	},
+	"heroku": {
+		"installation_method": "standalone"
+	},
+	"rvm": {
+		"user_installs": [{
+			"user": "vagrant"
+		}]
+	},
 	"utilities": {
 		"login_chdir": {
 			"directory": "/blogs"
 		}
 	},
-	"vm": {
-		"ip_address": "10.25.83.66",
-		"hostname":	"hexo"
-	},
 	"run_list": [
 		"recipe[apt]",
 		"recipe[git]",
 		"recipe[nodejs]",
-		"recipe[heroku-toolbelt]",
 		"recipe[hexo]",
+		"recipe[heroku]",
 		"recipe[utilities::login_chdir]"
 	]
 }

@@ -5,10 +5,17 @@ site 'http://community.opscode.com/api/v1'
 
 cookbook 'apt'
 cookbook 'git'
-cookbook 'heroku-toolbelt'
+cookbook 'rvm'
 
 cookbook 'nodejs',
   :git => 'https://github.com/redguide/nodejs'
+
+
+#cookbook 'hexo',
+#  :git => 'https://github.com/alt3-cookbooks/hexo'
+
+#cookbook 'utilities',
+#  :git => 'https://github.com/alt3-cookbooks/utilities'
 
 cookbook 'hexo',
   :git => 'https://github.com/alt3/cookbooks',
@@ -17,3 +24,6 @@ cookbook 'hexo',
 cookbook 'utilities',
   :git => 'https://github.com/alt3/cookbooks',
   :path => 'utilities'
+
+cookbook 'heroku',
+  :git => 'https://github.com/alt3-cookbooks/heroku'

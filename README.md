@@ -37,11 +37,11 @@ Override default settings by creating `Vagrantfile.yml`:
 
 ## Launch demo blog
 
+Point your your browser at [http://10.25.83.66:4000](http://10.25.83.66:4000) after running:
+
 	vagrant ssh
 	cd demo
 	hexo server
-
-Point your browser at [http://10.25.83.66](http://10.25.83.66)
 
 ## Create new blog
 
@@ -76,7 +76,8 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-#@TODO
+#TODO
+
 - add post with redirect example to demo
 - add alias to easify --no-bin-links?
 - change git version to 2.1 (http://tecadmin.net/install-git-on-ubuntu/)

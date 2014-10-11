@@ -22,7 +22,7 @@ Chef-librarian provisioned [hexo](http://hexo.io) server with the following feat
 	vagrant up
 
 ## Configuration
-The default server settings should suffice in most cases. However, feel free to override them by creating `Vagrantfile.yml` and changing any of the following settings:
+Simply create file `Vagrantfile.yml` if you want to override any of the following default settings:
 
 <table>
   <tr>

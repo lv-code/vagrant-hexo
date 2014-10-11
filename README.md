@@ -22,40 +22,16 @@ Chef-librarian provisioned [hexo](http://hexo.io) server with the following feat
 	vagrant up
 
 ## Configuration
-Simply create file `Vagrantfile.yml` if you want to override any of the following default settings:
 
-<table>
-  <tr>
-	<td>Node</td>
-    <td>Setting</td>
-    <td>Description</td>
-    <td>Default</td>
-  </tr>
-  <tr>
-	<td><code>hexo</code></td>
-    <td><code>install_demo</code></td>
-    <td>True to install and configure a hexo demo blog with theme in /blogs.</td>
-    <td><em>true</em></td>
-  </tr>
-  <tr>
-	<td><code>hexo</code></td>
-    <td><code>theme_git_url</code></td>
-    <td>URL to a git repository holding a hexo theme.</td>
-    <td><em>(see .yml)</em></td>
-  </tr>
-  <tr>
-	<td><code>vm</code></td>
-    <td><code>hostname</code></td>
-    <td>Name of your hexo server.</td>
-    <td><em>hexo</em></td>
-  </tr>
-  <tr>
-	<td><code>vm</code></td>
-    <td><code>ip_address</code></td>
-    <td>IP-address of your hexo server.</td>
-    <td><em>10.25.83.66</em></td>
-  </tr>
-</table>
+Override default settings by creating `Vagrantfile.yml`:
+
+    hexo:
+      install_demo  : true
+      theme_git_url : https://github.com/kywk/hexo-theme-casper.git
+
+    vm:
+      hostname      : hexo
+      ip_address    : 10.25.83.66
 
 # Usage
 
@@ -101,7 +77,6 @@ Point your browser at [http://10.25.83.66](http://10.25.83.66)
 5. Create a new Pull Request
 
 #@TODO
-- add ruby (heroku now standalone)
 - add post with redirect example to demo
 - add alias to easify --no-bin-links?
 - change git version to 2.1 (http://tecadmin.net/install-git-on-ubuntu/)

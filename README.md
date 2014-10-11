@@ -6,8 +6,8 @@ Chef-librarian provisioned [hexo](http://hexo.io) server with the following feat
 - 64-bit Ubuntu 14.04 LTS
 - running at `10.25.83.66`
 - local blogs directory mounted as `/blogs` 
-- [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/), ruby 1.9.3 and hexo
-- ready to deploy using git, rsync or [heroku](https://www.heroku.com) 
+- [nvm](https://github.com/creationix/nvm), [nodejs](http://nodejs.org/), [heroku-toolbelt](https://toolbelt.heroku.com/), ruby 1.9.3
+- ready to deploy using git, rsync or heroku 
 - fully functional demo with light-theme and redirect example
 
 # Requirements

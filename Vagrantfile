@@ -13,11 +13,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   config.omnibus.chef_version = :latest
 
-  # Add Librarian-Chef to the bare box using Vagrant plugin
-  unless Vagrant.has_plugin?('vagrant-librarian-chef')
-    raise Vagrant::Errors::VagrantError.new, "Error: missing plugin. Please run 'vagrant plugin install vagrant-librarian-chef'"
+  # Add Berkshelf to the bare box using Vagrant plugin
+  unless Vagrant.has_plugin?('vagrant-berkshelf')
+    raise Vagrant::Errors::VagrantError.new, "Error: missing plugin. Please run 'vagrant plugin install vagrant-berkshelf'"
   end
-  config.librarian_chef.cheffile_dir = '.chef'
+
+  # Set up Berkshelf
+  config.berkshelf.enabled = true
+  if File.exist?('Berksfile.dev')
+    config.berkshelf.berksfile_path = './Berksfile.dev'
+  else
+    config.berkshelf.berksfile_path = './Berksfile'
+  end
 
   # Enable SSH agent forwarding
   config.ssh.forward_agent = true
@@ -43,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Provision vm using Chef-Librarian
   config.vm.provision :chef_solo do |chef|
-    chef.custom_config_path = '.chef/config.rb'
+    chef.custom_config_path = '.chefconfig'
     chef.cookbooks_path = '.chef/cookbooks'
     chef.json = settings
   end

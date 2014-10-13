@@ -20,11 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Set up Berkshelf
   config.berkshelf.enabled = true
-  if File.exist?('Berksfile.dev')
-    config.berkshelf.berksfile_path = './Berksfile.dev'
-  else
-    config.berkshelf.berksfile_path = './Berksfile'
-  end
+  config.berkshelf.berksfile_path = './Berksfile'
 
   # Enable SSH agent forwarding
   config.ssh.forward_agent = true

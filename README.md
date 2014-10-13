@@ -1,7 +1,7 @@
 vagrant-hexo
 ============
 
-Chef-librarian provisioned [hexo](http://hexo.io) server with the following features:
+Vagrant [hexo](http://hexo.io) server with the following features:
 
 - 64-bit Ubuntu 14.04 LTS
 - running at `10.25.83.66`

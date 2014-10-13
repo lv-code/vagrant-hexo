@@ -4,7 +4,7 @@ metadata
 
 ## Use local (development) cookbooks if present
 def depload(dep, options)
-	cookbooks = 'cookbooks-dev'
+	cookbooks = '.cookbooks'
 	if Dir.exists?("#{cookbooks}/#{dep}")
 		cookbook dep, path: "#{cookbooks}/#{dep}"
 	else

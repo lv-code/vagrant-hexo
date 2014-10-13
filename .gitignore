@@ -14,6 +14,3 @@
 !README
 !Vagrantfile
 !Vagrantfile.yml.example
-
-# except chef directory (which uses it's own .gitignore)
-!.chef/

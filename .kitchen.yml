@@ -9,6 +9,8 @@
 ---
 driver:
   name: vagrant
+  synced_folders:
+    - ['blogs', '/blogs']
 
 provisioner:
   name: chef_solo

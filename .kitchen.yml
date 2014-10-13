@@ -1,9 +1,14 @@
 #
-# Run kitchen against same node.json as used by Vagrantfile
+# Run kitchen using same node.json as used by Vagrantfile
 #
 <%
   require 'json'
-  node = JSON.parse(File.read('node.json'))
+  if !File.exist?('node.json')
+    puts 'Aborting .kitchen.yml: required node.json does not exist' unless File.exist?('node.json')
+    exit
+  else
+    node = JSON.parse(File.read('node.json'))
+  end
 %>
 ---
 driver:

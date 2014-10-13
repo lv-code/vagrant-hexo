@@ -4,13 +4,12 @@
 <%
   require 'json'
   node = JSON.parse(File.read('node.json'))
-
 %>
 ---
 driver:
   name: vagrant
   synced_folders:
-    - ['blogs', <%= node['attributes']['hexo']['blogs_root'] %>]
+    - [ 'blogs', <%= node['attributes']['hexo']['blogs_root'] %>, 'create: true, user: vagrant, group: vagrant' ]
 
 provisioner:
   name: chef_solo

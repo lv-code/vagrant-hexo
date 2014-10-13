@@ -10,7 +10,7 @@
 driver:
   name: vagrant
   synced_folders:
-    - ['blogs', '/blogs']
+    - ['blogs', <%= node['attributes']['hexo']['blogs_root'] %>]
 
 provisioner:
   name: chef_solo

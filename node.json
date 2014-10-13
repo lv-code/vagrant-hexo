@@ -4,6 +4,9 @@
 		"hostname":	"hexo"
 	},
 	"attributes": {
+		"hexo": {
+			"blogs_root": "/blogs"
+		},
 		"utilities": {
 			"login_chdir": {
 				"directory": "/blogs"

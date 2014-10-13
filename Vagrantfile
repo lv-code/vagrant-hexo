@@ -34,8 +34,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   settings.deep_merge!(YAML::load_file('Vagrantfile.yml')) if File.exist?('Vagrantfile.yml')
 
   # Default box configuration
-  config.vm.box = 'puppetlabs/ubuntu-14.04-64-nocm'
-  config.vm.box_url = 'https://vagrantcloud.com/puppetlabs/boxes/ubuntu-14.04-64-nocm/versions/3/providers/virtualbox.box'
+  config.vm.box = 'opscode-ubuntu-14.04'
+  config.vm.box_url = 'https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'
 
   config.vm.hostname = settings['vm']['hostname']
   config.vm.network :private_network, ip: settings['vm']['ip_address']

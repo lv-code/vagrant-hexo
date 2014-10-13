@@ -1,3 +1,11 @@
+#
+# Run kitchen against same node.json as used by Vagrantfile
+#
+<%
+  require 'json'
+  node = JSON.parse(File.read('node.json'))
+
+%>
 ---
 driver:
   name: vagrant
@@ -12,11 +20,5 @@ platforms:
 
 suites:
   - name: default
-    run_list:
-      - recipe[apt]
-      - recipe[git]
-      - recipe[nodejs]
-      - recipe[hexo]
-      - recipe[utilities::login_chdir]
-
-    attributes:
+    run_list: <%= node["run_list"] %>
+    attributes: <%= node["attributes"].to_json %>

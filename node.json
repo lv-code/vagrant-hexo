@@ -3,9 +3,11 @@
 		"ip_address": "10.25.83.66",
 		"hostname":	"hexo"
 	},
-	"utilities": {
-		"login_chdir": {
-			"directory": "/blogs"
+	"attributes": {
+		"utilities": {
+			"login_chdir": {
+				"directory": "/blogs"
+			}
 		}
 	},
 	"run_list": [

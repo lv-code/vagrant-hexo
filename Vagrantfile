@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Do not mount /vagrant. Mount local blogs directory to /blogs instead
   config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.synced_folder 'blogs', '/blogs', create: true, owner: 'vagrant', group: 'vagrant'
+  config.vm.synced_folder 'blogs', settings['attributes']['hexo']['blogs_root'], create: true, owner: 'vagrant', group: 'vagrant'
 
   # Provision vm using Berkshelf
   config.vm.provision :chef_solo do |chef|

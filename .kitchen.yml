@@ -15,7 +15,7 @@ driver:
   synced_folders:
     - [ "./blogs/%{instance_name}", <%= node['attributes']['hexo']['blogs_root'] %>, 'create: true, owner: "vagrant", group: "vagrant"' ]
   network:
-  - [ 'private_network', {ip: "<%= node['vm']['ip_address'] %>"} ]
+    - [ 'private_network', {ip: "<%= node['vm']['ip_address'] %>"} ]
 
 provisioner:
   name: chef_solo

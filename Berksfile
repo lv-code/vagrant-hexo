@@ -2,23 +2,17 @@ source "https://supermarket.getchef.com"
 
 metadata
 
-##
-## TODO: define production cookbooks here
-##
-cookbook 'hexo', git: 'git://github.com/alt3-cookbooks/hexo.git'
-
-cookbook 'heroku', git: 'git://github.com/alt3-cookbooks/heroku.git'
-
-cookbook 'utilities', git: 'git://github.com/alt3-cookbooks/utilities.git'
-
-##
-## TODO: override if local cookbook is found
-##
-Dir.glob('cookbooks-dev/*').each do |path|
-	puts "PATH = #{path}"
-	#cookbook File.basename(path), path: path
+## Use local (development) cookbooks if present
+def depload(dep, options)
+	cookbooks = 'cookbooks-dev'
+	if Dir.exists?("#{cookbooks}/#{dep}")
+		cookbook dep, path: "#{cookbooks}/#{dep}"
+	else
+		cookbook dep, options
+   	end
 end
 
-##
-## TODO: foreach set cookbook
-##
+# Define cookbooks using Berksfile cookbook syntax
+depload 'hexo', git: 'git://github.com/alt3-cookbooks/hexo.git'
+depload 'heroku', git: 'git://github.com/alt3-cookbooks/heroku.git'
+depload 'utilities', git: 'git://github.com/alt3-cookbooks/utilities.git'

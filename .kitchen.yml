@@ -10,6 +10,8 @@ driver:
   name: vagrant
   synced_folders:
     - [ 'blogs', <%= node['attributes']['hexo']['blogs_root'] %>, 'create: true, owner: "vagrant", group: "vagrant"' ]
+  network:
+  - [ 'private_network', {ip: "<%= node['vm']['ip_address'] %>"} ]
 
 provisioner:
   name: chef_solo

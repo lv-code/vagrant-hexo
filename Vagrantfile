@@ -48,11 +48,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
   config.vm.synced_folder 'blogs', '/blogs', create: true, owner: 'vagrant', group: 'vagrant'
 
-  # Provision vm using Chef-Librarian
+  # Provision vm using Berkshelf
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = '.chefconfig'
-    chef.cookbooks_path = '.chef/cookbooks'
-    chef.json = settings
+    chef.run_list = settings['run_list']
+    chef.json = settings['attributes']
   end
 
   # Make the vm work using VMWare Workstation too

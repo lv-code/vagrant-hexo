@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   settings = JSON.parse(File.read('node.json'))
 
   # Extend settings
-  settings['hexo']['ip_address'] = settings['vm']['ip_address']
+  settings['attributes']['hexo']['ip_address'] = settings['vm']['ip_address']
   settings.deep_merge!(YAML::load_file('Vagrantfile.yml')) if File.exist?('Vagrantfile.yml')
 
   # Default box configuration
